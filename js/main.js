@@ -3,6 +3,7 @@ const els = {
   dispThemes: null,
   dispDifficult: null,
   allCards: null,
+  popStart: null,
 }
 
 // Déclaration des variables
@@ -19,6 +20,7 @@ const init = () => {
   els.dispThemes = document.querySelector('#displayThemes');
   els.dispDifficult = document.querySelector('#displayDifficult');
   els.allCards = document.querySelector('#allCards');
+  els.popStart = document.querySelector('#popStart');
   console.log("init");
 
 
@@ -98,18 +100,49 @@ const displayCardsGenerate = () => {
   // Effacement du menu des difficultées
   els.dispDifficult.classList.replace("d-flex", "hidden");
   generateCards(gameSelect);
+  for (let i = 0; i < 12; i++) {
+    els.allCards.innerHTML += `<div id="card${i}" class="card card-lg"></div>`;
+  }
+  startPopup();
 };
 
 // Génération des cartes suivant le theme choisi
 const generateCards = (gameSelect) => {
-  console.log("generate fonction : ",gameSelect[0]);
-  if (gameSelect[0] == "enfant"){
-    els.allCards.innerHTML = 
-    `
-    
-    `;
+  console.log("generate fonction : ", gameSelect[0]);
+  if (gameSelect[0] == "enfant") {
+    // face down card background => img disney castel
+    // face up card background => img child drawing
+  }
+  if (gameSelect[0] == "langage") {
+    // face down card background => img computer
+    // face up card background => img logo language
+  }
+  if (gameSelect[0] == "serie") {
+    // face down card background => img mask casa de papel
+    // face up card background => img actor photos
   }
 };
+
+const startPopup = () => {
+  els.popStart.innerHTML =
+    `<div class="position-absolute top-0 start-0 bg-black bg-opacity-50 vh-100 vw-100">
+      <div class="d-flex rounded-pill flex-column col-10 offset-1 col-md-8 offset-md-2 my-auto">
+        <h1 class="d-flex justify-content-center mt-5 fw-bold text-danger">Etes-vous prêt ?</h1>
+        <button id="start" class="rounded-pill col-4 offset-4 col-md-2 offset-md-5 my-5" onclick= gameStart()>GO!!!</button>
+      </div>
+    </div>
+    `;
+}
+
+const gameStart = () => {
+  console.log(els.popStart);
+  els.popStart.classList.add('hidden');
+  playTime();
+}
+
+const playTime = () => {
+
+}
 
 window.addEventListener('load', () => {
   init();

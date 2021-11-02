@@ -153,25 +153,14 @@ button:hover {
   box-shadow: 0px 0px 5px 5px;
 }
 
-#card1,
-#card2,
-#card3,
-#card4,
-#card5,
-#card6,
-#card7,
-#card8,
-#card9,
-#card10,
-#card11,
-#card12 {
+.card {
   width: calc((100% / 4) - (0.2em * 4));
   height: calc((70vh / 3) - (0.2em * 3));
+  background-color: #b3d4fc;
   margin: 0.2em;
 }
 
 .hiddenFace {
-  background-color: #b3d4fc;
   background-image: url(/img/THEMES/casa_de_papel/casa-mask-papel.gif);
   background-repeat: no-repeat;
   background-size: cover;
@@ -199,6 +188,12 @@ a {
 @media screen and (min-width: 992px) {
   .nav-link {
     font-size: 1.5em;
+  }
+
+  .card-lg {
+    width: calc((100% / 6) - (0.5em * 4));
+    height: calc((70vh / 2) - (0.5em * 2));
+    margin: 0.5em;
   }
 }
 
