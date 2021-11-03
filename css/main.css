@@ -150,42 +150,36 @@ button:hover {
 
 .card {
   width: calc((100% / 4) - (0.2em * 4));
-  height: calc((70vh / 3) - (0.2em * 3));
+  height: calc((67vh / 3) - (0.2em * 3));
   background-color: #b3d4fc;
   margin: 0.2em;
+  /* perspective: 1000px; */
 }
-
-/* .hiddenFace {
-  background-image: url(/img/THEMES/casa_de_papel/casa-mask-papel.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 .popstart {
   height: 70vh;
   width: 100vw;
-  z-index: 1100;
+  z-index: 10;
 }
 
 /* Background image des faces cacher*/
-.bgEnfant {
-  background-image: url(/img/THEMES/dessin_enfant/castel_disney.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+#allCards img {
+  content: cover;
 }
 
-.bgLangage {
-  background-image: url(/img/THEMES/langage_prog/computer-programming-software-develo.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+.flip {
+  transform: rotateY(180deg);
 }
 
-.bgSerie {
-  background-image: url(/img/THEMES/casa_de_papel/casa-mask-papel.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
+#count {
+  height: 3vh;
 }
 
+#innerCount {
+  background-color: #b3d4fc;
+  border-radius: 5px;
+  color: #dc3545;
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 footer * {

@@ -4,14 +4,24 @@ const els = {
   dispDifficult: null,
   allCards: null,
   popStart: null,
+  count: null,
+  backFace: null,
+  frontFace: null
 }
+
 // affectation des éléments HTML
 els.dispThemes = document.querySelector('#displayThemes');
 els.dispDifficult = document.querySelector('#displayDifficult');
 els.allCards = document.querySelector('#allCards');
 els.popStart = document.querySelector('#popStart');
+els.count = document.querySelector('#count');
+els.backFace = document.querySelectorAll('.back-face')
+els.frontFace = document.querySelectorAll('.front-face')
+
 // Déclaration des variables
 let gameSelect = [];
+let count = 0;
+let time = 1;
 
 /*######################################################################################################
 ##                                        Initialisation du jeu                                       ##
@@ -22,7 +32,6 @@ const init = () => {
   console.log("init");
   // Affichage du choix des themes
   displayThemeChoices();
-
   ////////////////////////////////// écoute du click sur le choix des themes/////////////////////////////////
   els.dispThemes.addEventListener('click', ({
     target
@@ -62,13 +71,10 @@ const init = () => {
     target
   }) => {
     if (target.matches('.card')) {
-
-      console.log("carte clické");
-      // displayCardsGenerate(gameSelect);
-      // } else if (target.matches('#btnPlayMoves')) {
-      //   gameSelect.push("playMoves");
-      //   console.log(gameSelect);
-      //   displayCardsGenerate(gameSelect);
+      //console.log("carte clické : ",target);
+      const cardTarget = target;
+      flipCard(cardTarget);
+      
     }
   });
 
