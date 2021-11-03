@@ -32,13 +32,14 @@ const init = () => {
   console.log("init");
   // Affichage du choix des themes
   displayThemeChoices();
+
   ////////////////////////////////// écoute du click sur le choix des themes/////////////////////////////////
   els.dispThemes.addEventListener('click', ({
     target
   }) => {
     if (target.matches('#themeEnfant')) {
       gameSelect.push("enfant");
-      console.log(gameSelect);
+      console.log(gameSelect);      
       displayDifficultChoices(gameSelect);
     } else if (target.matches('#themeLangage')) {
       gameSelect.push("langage");

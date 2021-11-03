@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main2.css">
   <!-- CDN bootstrap pour les icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
   <meta name="theme-color" content="#fafafa">
@@ -51,15 +51,89 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ le jeu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <section id="displayThemes" class="d-flex flex-column">
       <!-- ici vient se placer ==> le choix de thèmes -->
+      <h2 class="d-flex col-10 justify-content-center align-items-center my-5 mx-auto">Choisissez votre thèmes :</h2>
+      <div id="themes" class="d-flex flex-column col-12 justify-content-center align-items-center">
+        <button id="themeEnfant" class="d-flex col-8 justify-content-center align-items-center py-3 my-3">Dessins
+          d'enfants</button>
+        <button id="themeLangage" class="d-flex col-8 justify-content-center align-items-center py-3 my-3">Logos
+          Langages</button>
+        <button id="themeSerie" class="d-flex col-8 justify-content-center align-items-center py-3 my-3">Séries</button>
+      </div>
     </section>
-    <section id="displayDifficult" class="d-flex flex-column">
+    <section id="displayDifficult" class="d-flex flex-column hidden">
       <!-- ici vient se placer ==> le choix de la difficulter -->
+      <h2 class="d-flex col-12 justify-content-center align-items-center my-5 mx-auto">Choisissez votre style de jeu :
+      </h2>
+      <div id="difficulty" class="d-flex flex-column col-12 justify-content-center align-items-center">
+        <button id="btnTimeVs" class="d-flex col-8 justify-content-center align-items-center py-3 my-3">Contre la
+          montre</button>
+        <button id="btnPlayMoves" class="d-flex col-8 justify-content-center align-items-center py-3 my-3">Nombre de
+          coup</button>
+      </div>
     </section>
-    <section id="popStart">
+    <section id="popStart" class="hidden">
       <!-- ici vient se placer ==> Le popup de lancement de la partie -->
+      <div class="position-absolute align-items-center top-25 start-0 bg-black bg-opacity-50 popstart">
+        <div class="d-flex justify-content-center align-items-center">
+          <div
+            class="d-flex flex-column justify-content-center bg-light bg-opacity-75 col-10 col-md-8 offset-md-2 mt-5 my-auto">
+            <h1 class="d-flex justify-content-center mt-5 fw-bold text-danger">Etes-vous prêt ?</h1>
+            <button id="start" class="rounded-pill col-4 offset-4 col-md-2 offset-md-5 my-5"
+              onclick=gameStart()>GO!!!</button>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="allCards" class="d-flex flex-wrap justify-content-center col-12">
+    <section id="allCards" class="d-flex flex-wrap justify-content-center col-12 hidden">
       <!-- ici vient se placer ==> les cartes -->
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
+      <div class="card card-lg">
+        <img class="front-face" src="" alt="">
+        <img class="back-face" src="" alt="">
+      </div>
     </section>
     <section id="count" class="d-flex justify-content-center align-items-center">
       <!-- ici vient se placer ==> le compteur de temps ou de mouvement    -->
@@ -101,8 +175,8 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/function_creator.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/function_creator2.js"></script>
+  <script src="js/main2.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
