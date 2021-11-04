@@ -194,26 +194,6 @@ a {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page des themes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-/* #lesThemes>div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#lesThemes>div>h1 {
-  display: flex;
-  width: 90vw;
-  justify-content: center;
-  text-align: center;   
-}
-*/
-#lesThemes>div>p {
-  text-align: center; 
-}
-
-#lesThemes>section>div>img{
-  padding: 0.5em;
-}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                               Media Query classes
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
