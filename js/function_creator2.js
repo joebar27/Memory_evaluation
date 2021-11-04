@@ -21,6 +21,12 @@ function displayCards() {
 };
 /////////////////////////////////////////// Fonction du retournement des cartes ///////////////////////////////////////////////////////
 function flipCard() {
+  if (lockCards) {
+    return;
+  }
+  if (this === firstPlayCard) {
+    return;
+}
   this.classList.add('flip');
   // console.log("after : ",playCardIsFlipped);
   if (!playCardIsFlipped) {
@@ -31,23 +37,52 @@ function flipCard() {
     return;
   }
   secondPlayCard = this;
-  playCardIsFlipped = false;
+  //playCardIsFlipped = false;
   comparedCard();
 };
 
 ////////////////////////////////////////// Fonction de comparaison des cartes retourner ///////////////////////////////////////////////////
-function comparedCard() {
-    if (firstPlayCard.dataset.framework === secondPlayCard.dataset.framework){
-        disableCards();
-        return;
-    }
+function comparedCard() {    
+  if (firstPlayCard.dataset.framework === secondPlayCard.dataset.framework) {
+    disableCards();
+    return;
+  } else {
     unflipPlayedCards();
+  }
 };
 
 ////////////////////////////////////////// Fonction de désactivation des cartes retourner /////////////////////////////////////////////////
 function disableCards() {
-
+  firstPlayCard.removeEventListener('click', flipCard);
+  secondPlayCard.removeEventListener('click', flipCard);
+  unlockCards();
 };
+
+////////////////////////////////////////// Fonction de remise face cacher des cartes retourner ////////////////////////////////////////////
+function unflipPlayedCards() {
+    lockCards = true;
+  setTimeout(() => {
+    firstPlayCard.classList.remove('flip');
+    secondPlayCard.classList.remove('flip');
+    //lockCards = false;
+    unlockCards();
+  }, 1500);
+}
+
+//////////////////////////////////////// Fonction de reinitialisation du verouillage des cartes ///////////////////////////////////////////
+function unlockCards() {
+    [playCardIsFlipped, lockCards] = [false, false];
+    [firstPlayCard, secondPlayCard] = [null, null];
+}
+
+////////////////////////////////////////// Fonction de lancement du compteur de temps de jeu //////////////////////////////////////////////
+function shuffle() {
+    els.playCards.forEach(playCard => {
+      let ramdomPos = Math.floor(Math.random() * 12);
+      playCard.style.order = ramdomPos;
+    });
+  };
+
 ////////////////////////////////////////// Fonction de lancement du compteur de temps de jeu //////////////////////////////////////////////
 function gameStart() {
   // console.log(els.popStart);
@@ -63,11 +98,11 @@ function gameStart() {
 
 //////////////////////////////////////////////////// Fonction compteur de temps de jeu ///////////////////////////////////////////////////
 function playTime() {
-   function upTimes() {
+  function upTimes() {
     els.count.innerHTML = `<div id="innerCount" class="d-flex justify-content-center col-6">Temps écoulé : ${time} s</div>`;
     time++;
-   }
-  setInterval(playTime, 1000);
+  }
+  setInterval(upTimes, 1000);
 };
 
 //////////////////////////////////////////////////// Fonction compteur de mouvement ///////////////////////////////////////////////////

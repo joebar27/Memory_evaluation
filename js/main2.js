@@ -26,6 +26,7 @@ let move = 0;
 let time = 1;
 let playCardIsFlipped = false;
 let firstPlayCard, secondPlayCard;
+let lockCards = false;
 
 /*######################################################################################################
 ##                                        Initialisation du jeu                                       ##
@@ -35,7 +36,10 @@ let firstPlayCard, secondPlayCard;
 const init = () => {
   console.log("init");
   
-  ////////////////////////////////// écoute du click sur le choix des themes/////////////////////////////////
+  ////////////////////////////////// appel de la fonction de melange de carte /////////////////////////////////
+  shuffle();
+
+  ////////////////////////////////// écoute du click sur le choix des themes /////////////////////////////////
   els.dispThemes.addEventListener('click', ({
     target
   }) => {
@@ -54,7 +58,7 @@ const init = () => {
     }
   });
 
-  ///////////////////////////////// écoute du click sur le choix des difficultées//////////////////////////////
+  ///////////////////////////////// écoute du click sur le choix des difficultées //////////////////////////////
   els.dispDifficult.addEventListener('click', ({
     target
   }) => {
@@ -69,7 +73,7 @@ const init = () => {
     }
   });
 
-  /////////////////////////// écoute du click sur le choix des cartes///////////////////////////////////////
+  /////////////////////////// écoute du click sur le choix des cartes ///////////////////////////////////////
   els.playCards.forEach(playCard => playCard.addEventListener('click', flipCard));
 
 
