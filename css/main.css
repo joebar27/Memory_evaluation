@@ -194,37 +194,25 @@ a {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page des themes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-#lesThemes>div {
+/* #lesThemes>div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#lesThemes>h1 {
-  display: flex;
-  width: 90vw;   
-}
-
-#lesThemes>p {
+#lesThemes>div>h1 {
   display: flex;
   width: 90vw;
   justify-content: center;
+  text-align: center;   
+}
+*/
+#lesThemes>div>p {
   text-align: center; 
 }
 
-#lesThemes>section {
-display: flex;
-flex-wrap: wrap;
-}
-#lesThemes>section>h2 {
-  width: 90vw;
-}
-#lesThemes>section>img{
-  display: flex;  
-  justify-content: center;
-  margin: 0;
-  padding: 1em;
-  width: calc(100vw / 3 );
+#lesThemes>section>div>img{
+  padding: 0.5em;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                               Media Query classes
