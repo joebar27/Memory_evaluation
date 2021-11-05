@@ -12,8 +12,8 @@ const els = {
   playCards: null,  
   count: null,
   result: null,
-  backFace: null,
-  frontFace: null,
+  backFaces: null,
+  frontFaces: null,
 };
 
 // affectation des éléments HTML
@@ -25,14 +25,16 @@ els.allCards = document.querySelector('#allCards');
 els.count = document.querySelector('#count');
 els.result = document.querySelector('#result');
 
-els.backFace = document.querySelectorAll('.back-face');
-els.frontFace = document.querySelectorAll('.front-face');
+els.backFaces = document.querySelectorAll('.back-face');
+els.frontFaces = document.querySelectorAll('.front-face');
 els.playCards = document.querySelectorAll('.playCard');
 
 // Déclaration des variables
 let gameSelect = [];
 let move = 0;
 let time = 1;
+let timeScore = null;
+let countMatchedCard = 0;
 let playCardIsFlipped = false;
 let firstPlayCard, secondPlayCard;
 let lockCards = false;
@@ -57,6 +59,7 @@ const init = () => {
     if (target.matches('#themeEnfant')) {
       gameSelect.push("enfant");
       console.log(gameSelect);
+      changePlayCards(gameSelect[0]);
       displayDifficultChoices(gameSelect);
     } else if (target.matches('#themeLangage')) {
       gameSelect.push("langage");
@@ -65,6 +68,7 @@ const init = () => {
     } else if (target.matches('#themeSerie')) {
       gameSelect.push("serie");
       console.log(gameSelect);
+      changePlayCards(gameSelect[0]);
       displayDifficultChoices(gameSelect);
     }
   });

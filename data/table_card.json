@@ -1,0 +1,188 @@
+{
+    "serie": {
+        "1": {
+            "src": "./img/THEMES/casa_de_papel/1.gif",
+            "alt": "BERLIN",
+            "framework": "BERLIN"
+        },
+        "2": {
+            "src": "./img/THEMES/casa_de_papel/2.gif",
+            "alt": "BERLIN",
+            "framework": "BERLIN"
+        },
+        "3": {
+            "src": "./img/THEMES/casa_de_papel/3.gif",
+            "alt": "DENVER",
+            "framework": "DENVER"
+        },
+        "4": {
+            "src": "./img/THEMES/casa_de_papel/4.gif",
+            "alt": "DENVER",
+            "framework": "DENVER"
+        },
+        "5": {
+            "src": "./img/THEMES/casa_de_papel/5.gif",
+            "alt": "PROFFESSEUR",
+            "framework": "PROFFESSEUR"
+        },
+        "6": {
+            "src": "./img/THEMES/casa_de_papel/6.gif",
+            "alt": "PROFFESSEUR",
+            "framework": "PROFFESSEUR"
+        },
+        "7": {
+            "src": "./img/THEMES/casa_de_papel/7.gif",
+            "alt": "HELSINKI",
+            "framework": "HELSINKI"
+        },
+        "8": {
+            "src": "./img/THEMES/casa_de_papel/8.gif",
+            "alt": "HELSINKI",
+            "framework": "HELSINKI"
+        },
+        "9": {
+            "src": "./img/THEMES/casa_de_papel/9.gif",
+            "alt": "NAIROBI",
+            "framework": "NAIROBI"
+        },
+        "10": {
+            "src": "./img/THEMES/casa_de_papel/10.gif",
+            "alt": "NAIROBI",
+            "framework": "NAIROBI"
+        },
+        "11": {
+            "src": "./img/THEMES/casa_de_papel/11.gif",
+            "alt": "TOKYO",
+            "framework": "TOKYO"
+        },
+        "12": {
+            "src": "./img/THEMES/casa_de_papel/12.gif",
+            "alt": "TOKYO",
+            "framework": "TOKYO"
+        }
+    },
+    "enfant": {
+        "1": {
+            "src": "./img/THEMES/dessin_enfant/1.gif",
+            "alt": "dessin de simba",
+            "framework": "simba"
+        },
+        "2": {
+            "src": "./img/THEMES/dessin_enfant/2.gif",
+            "alt": "dessin de simba",
+            "framework": "simba"
+        },
+        "3": {
+            "src": "./img/THEMES/dessin_enfant/3.gif",
+            "alt": "dessin de souri",
+            "framework": "souri"
+        },
+        "4": {
+            "src": "./img/THEMES/dessin_enfant/4.gif",
+            "alt": "dessin de souri",
+            "framework": "souri"
+        },
+        "5": {
+            "src": "./img/THEMES/dessin_enfant/5.gif",
+            "alt": "dessin de polochon le poisson",
+            "framework": "polochon"
+        },
+        "6": {
+            "src": "./img/THEMES/dessin_enfant/6.gif",
+            "alt": "dessin de polochon le poisson",
+            "framework": "polochon"
+        },
+        "7": {
+            "src": "./img/THEMES/dessin_enfant/7.gif",
+            "alt": "dessin de tasse",
+            "framework": "tasse"
+        },
+        "8": {
+            "src": "./img/THEMES/dessin_enfant/8.gif",
+            "alt": "dessin de tasse",
+            "framework": "tasse"
+        },
+        "9": {
+            "src": "./img/THEMES/dessin_enfant/9.gif",
+            "alt": "dessin de plutot",
+            "framework": "plutot"
+        },
+        "10": {
+            "src": "./img/THEMES/dessin_enfant/10.gif",
+            "alt": "dessin de plutot",
+            "framework": "plutot"
+        },
+        "11": {
+            "src": "./img/THEMES/dessin_enfant/11.gif",
+            "alt": "dessin de stitch",
+            "framework": "stitch"
+        },
+        "12": {
+            "src": "./img/THEMES/dessin_enfant/12.gif",
+            "alt": "dessin de stitch",
+            "framework": "stitch"
+        }
+    },
+    "langage": {
+        "1": {
+            "src": "./img/THEMES/langage_prog/1.png",
+            "alt": "logo C#",
+            "framework": "C#"
+        },
+        "2": {
+            "src": "./img/THEMES/langage_prog/2.png",
+            "alt": "logo C#",
+            "framework": "C#"
+        },
+        "3": {
+            "src": "./img/THEMES/langage_prog/3.png",
+            "alt": "logo html",
+            "framework": "HTML"
+        },
+        "4": {
+            "src": "./img/THEMES/langage_prog/4.png",
+            "alt": "logo html",
+            "framework": "HTML"
+        },
+        "5": {
+            "src": "./img/THEMES/langage_prog/5.png",
+            "alt": "logo php",
+            "framework": "PHP"
+        },
+        "6": {
+            "src": "./img/THEMES/langage_prog/6.png",
+            "alt": "logo php",
+            "framework": "PHP"
+        },
+        "7": {
+            "src": "./img/THEMES/langage_prog/7.png",
+            "alt": "logo python",
+            "framework": "PYTHON"
+        },
+        "8": {
+            "src": "./img/THEMES/langage_prog/8.png",
+            "alt": "logo python",
+            "framework": "PYTHON"
+        },
+        "9": {
+            "src": "./img/THEMES/langage_prog/9.png",
+            "alt": "logo js",
+            "framework": "JS"
+        },
+        "10": {
+            "src": "./img/THEMES/langage_prog/10.png",
+            "alt": "logo js",
+            "framework": "JS"
+        },
+        "11": {
+            "src": "./img/THEMES/langage_prog/11.png",
+            "alt": "logo css",
+            "framework": "CSS"
+        },
+        "12": {
+            "src": "./img/THEMES/langage_prog/12.png",
+            "alt": "logo css",
+            "framework": "CSS"
+        }
+    }
+}

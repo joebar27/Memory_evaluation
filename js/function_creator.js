@@ -53,6 +53,7 @@ function displayDifficultChoices() {
   // Effacement du menu des themes
   els.dispThemes.classList.toggle('hidden');
   // Affichage du menu des difficultées
+  els.dispDifficult.classList.toggle('hidden');
   els.dispDifficult.innerHTML =
     `
     <h2 class="d-flex col-12 justify-content-center align-items-center my-5 mx-auto">
@@ -142,6 +143,14 @@ function comparedCard() {
   playMoves(move);
   // si les deux cartes sont identique elle sont desactivé
   if (firstPlayCard.dataset.framework === secondPlayCard.dataset.framework) {
+    countMatchedCard++;
+    if (countMatchedCard == 6) {
+      // enregistrement du temps
+      timeScore = time;
+      // affichage des scores
+      displayResult(timeScore, move);
+      return;
+    }
     disableCards();
     return;
   }
@@ -169,7 +178,7 @@ function unflipPlayedCards() {
     secondPlayCard.classList.remove('flip');
     // appel de la fonction de dévérouillage de toute les cartes
     unlockCards();
-  }, 1500);// apres 1.5s de visualisation face visible
+  }, 1500); // apres 1.5s de visualisation face visible
 };
 
 //////////////////////////////////////// Fonction de reinitialisation du verouillage des cartes ///////////////////////////////////////////
@@ -195,6 +204,7 @@ function playTime() {
   function upTimes() {
     els.count.innerHTML = `<div id="innerCount" class="d-flex justify-content-center col-6 col-lg-4">Temps écoulé : ${time} s</div>`;
     time++;
+    console.log(time);
   }
   setInterval(upTimes, 1000);
 };
@@ -205,10 +215,182 @@ function playMoves(move) {
 };
 
 ////////////////////////////////////////// Fonction d'affichage du resultat de la partie ///////////////////////////////////////////////
-function displayResultat() {
+function displayResult(timeScore, move) {
   // si toute les carte sont retourner
+  els.result.classList.toggle('hidden');
+  els.allCards.classList.toggle('hidden');
+  els.count.classList.toggle('hidden');
+  if (gameSelect[1] === "timeVs") {
+    // affichage de la page de resultat pour les partie contre le temps
+    els.result.innerHTML =
+      `
+    <div class="d-flex flex-wrap justify-content-center">
+      <h1 class="d-flex justify-content-center text-center col-12 text-danger">BRAVO !!!</h1>
+      <p class="d-flex text-center fs-5">Vous avez réussi en :</p>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center col-12">
+      <p class="d-flex text-center fs-2">        
+        ${timeScore} seconds<br>
+        et<br>
+        ${move} coups
+      </p>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center col-12">
+      <h2 class="d-flex justify-content-center col-12">Que voulez-vous faire ?</h2>
+      <div class="d-flex justify-content-around col-12">
+        <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="restartGame()">Rejoué</button>
+        <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="changeTheme()">Changer de theme</button>
+      </div>
+    </div>
+    `;
+  }
+  if (gameSelect[1] === "playMoves") {
+    // affichage de la page de resultat pour les partie contre les mouvements
+    els.result.innerHTML =
+      `
+  <div class="d-flex flex-wrap justify-content-center">
+    <h1 class="d-flex justify-content-center text-center col-12 text-danger">BRAVO !!!</h1>
+    <p class="d-flex text-center fs-5">Vous avez réussi en :</p>
+  </div>
+  <div class="d-flex flex-wrap justify-content-center col-12">
+    <p class="d-flex text-center fs-2">
+      ${move} coups
+    </p>
+  </div>
+  <div class="d-flex flex-wrap justify-content-center col-12">
+    <h2 class="d-flex justify-content-center col-12">Que voulez-vous faire ?</h2>
+    <div class="d-flex justify-content-around col-12">
+      <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="restartGame()">Rejoué</button>
+      <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="changeTheme()">Changer de theme</button>
+    </div>
+  </div>
+  `;
+  }
+};
 
-  // arret du temps
+//////////////////////////////////////////////// Fonction redémarage d'une partie ///////////////////////////////////////////////
+function restartGame() {
+  // effacer l'affichage du resultat de la partie precedente
+  els.result.classList.toggle('hidden');
+  // appel de la fonction de reboot
+  rebootInit();
+  // Affichage du popup de lancement du jeu
+  els.popStart.classList.toggle('hidden');
+  dispPopupStart();
+  // Affichage des cartes
+  els.allCards.classList.toggle('hidden');
+};
 
-  // affichage de la page de resultat avec les valeur récuperer
+///////////////////////////// Fonction redémarage d'une partie avec choix des themes et difficulté /////////////////////////////////
+function changeTheme() {
+  // cacher section resultat
+  els.result.classList.toggle('hidden');
+  // montrer section du choix des themes
+  els.dispThemes.classList.toggle('hidden');
+  // montrer section du choix des difficulté
+  //els.dispDifficult.classList.toggle('hidden');
+  // appel de la fonction de reboot
+  rebootInit();
+  // réinitialisation du theme et de la difficulté choisi précédemment
+  gameSelect = [];
+  // appel de la fonction d'affichage du menu 
+  displayThemesChoices();
+};
+
+////////////////////////////////////////// Fonction réinitialisation des fonction du jeu ///////////////////////////////////////////////
+function rebootInit() {
+  // réinitialisation des variables
+  [move, time, timeScore, countMatchedCard, playCardIsFlipped] = [0, 1, null, 0, false];
+  // remise de toute les carte face caché
+  els.playCards.forEach(playCard => {
+    playCard.classList.toggle('flip');
+    playCard.addEventListener('click', flipCard);
+  });
+  //relancer un melange des cartes
+  shuffle();
+};
+
+////////////////////////////////////////////////// Fonction pour changer les themes /////////////////////////////////////////////////////
+function changePlayCards() {
+
+  if (gameSelect[0] === "serie") {
+    //changement de toute les back-faces
+    els.backFaces.forEach(backCard => {
+      backCard.src = "./img/THEMES/casa_de_papel/casa-mask-papel.gif";
+      backCard.alt = "image du masque de casa de papel";
+    });
+    //changement de toute les front-faces
+    themechosen = gameSelect[0];
+    tableCard(themechosen);
+  }
+
+  if (gameSelect[0] === "enfant") {
+    //changement de toute les back-faces
+    els.backFaces.forEach(backCard => {
+      backCard.src = "./img/THEMES/dessin_enfant/castel_disney.png";
+      backCard.alt = "dessin du chateau de disney";
+    });
+    //changement de toute les front-faces
+    themechosen = gameSelect[0];
+    tableCard(themechosen);
+  }
+
+  if (gameSelect[0] === "langage") {
+    //changement de toute les back-faces
+    els.backFaces.forEach(backCard => {
+      backCard.src = "./img/THEMES/langage_prog/programmer-computer.png";
+      backCard.alt = "programmer computer";
+    });
+    //changement de toute les front-faces
+    themechosen = gameSelect[0];
+    tableCard(themechosen);
+  }
+};
+
+////////////////////////////////////////////////// Fonction pour changer les themes /////////////////////////////////////////////////////
+function tableCard(themechosen) {
+  let playCardSrc = './Data/table_card.json';
+  let httpRequest = new XMLHttpRequest();
+
+  httpRequest.onreadystatechange = function () {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      // tout va bien, la réponse a été reçue
+      if (httpRequest.status === 200) {
+        let data = JSON.parse(httpRequest.response);
+
+        // themes serie :
+        if (themechosen === "serie") {
+          for (let i = 0; i < 12; i++) {
+            els.frontFaces[i].src = data.serie[i + 1].src;
+            els.frontFaces[i].alt = data.serie[i + 1].alt;
+            els.playCards[i].dataset.framework = data.serie[i + 1].framework;
+          }
+        }
+
+        // themes dessins enfant :
+        if (themechosen === "enfant") {
+          for (let i = 0; i < 12; i++) {
+            els.frontFaces[i].src = data.enfant[i + 1].src;
+            els.frontFaces[i].alt = data.enfant[i + 1].alt;
+            els.playCards[i].dataset.framework = data.enfant[i + 1].framework;
+          }
+        }
+
+        // themes logo langage :
+        if (themechosen === "langage") {
+          for (let i = 0; i < 12; i++) {
+            els.frontFaces[i].src = data.langage[i + 1].src;
+            els.frontFaces[i].alt = data.langage[i + 1].alt;
+            els.playCards[i].dataset.framework = data.langage[i + 1].framework;
+          }
+        }
+      } else {
+        // il y a eu un problème avec la requête,
+        console.log("un probleme est intervenue");
+      }
+    }
+  }
+  httpRequest.open('GET', playCardSrc);
+  httpRequest.send();
+
 }
