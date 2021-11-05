@@ -11,13 +11,13 @@ function diplayWelcome() {
     els.welcome.innerHTML =
       `
     <div class="d-flex flex-wrap justify-content-center">
-        <h1 class="d-flex col-10 text-center justify-content-center mb-5">Bienvenue</h1>
+        <h1 class="d-flex col-10 text-center justify-content-center mb-5 text-danger">Bienvenue</h1>
         <p class="d-flex col-10 text-center">
             Vous avez fait le bon choix de venir sur la page de mon jeu de paires, mais oserez-vous battre tout les records.
         </p>
     </div>
     `;
-    setTimeout(displayThemesChoices, 8000);
+    setTimeout(displayThemesChoices, 5000);
   } else {
     displayThemesChoices();
   }
