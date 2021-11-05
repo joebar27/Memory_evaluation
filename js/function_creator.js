@@ -53,6 +53,7 @@ function displayDifficultChoices() {
   // Effacement du menu des themes
   els.dispThemes.classList.toggle('hidden');
   // Affichage du menu des difficultées
+  els.dispDifficult.classList.toggle('hidden');
   els.dispDifficult.innerHTML =
     `
     <h2 class="d-flex col-12 justify-content-center align-items-center my-5 mx-auto">
@@ -143,7 +144,7 @@ function comparedCard() {
   // si les deux cartes sont identique elle sont desactivé
   if (firstPlayCard.dataset.framework === secondPlayCard.dataset.framework) {
     countMatchedCard++;
-    if(countMatchedCard == 6){
+    if (countMatchedCard == 6) {
       // enregistrement du temps
       timeScore = time;
       // affichage des scores
@@ -214,15 +215,15 @@ function playMoves(move) {
 };
 
 ////////////////////////////////////////// Fonction d'affichage du resultat de la partie ///////////////////////////////////////////////
-function displayResult(timeScore,move) {
+function displayResult(timeScore, move) {
   // si toute les carte sont retourner
   els.result.classList.toggle('hidden');
   els.allCards.classList.toggle('hidden');
   els.count.classList.toggle('hidden');
-  if (gameSelect[1] === "timeVs"){
+  if (gameSelect[1] === "timeVs") {
     // affichage de la page de resultat pour les partie contre le temps
-    els.result.innerHTML = 
-    `
+    els.result.innerHTML =
+      `
     <div class="d-flex flex-wrap justify-content-center">
       <h1 class="d-flex justify-content-center text-center col-12 text-danger">BRAVO !!!</h1>
       <p class="d-flex text-center fs-5">Vous avez réussi en :</p>
@@ -243,10 +244,10 @@ function displayResult(timeScore,move) {
     </div>
     `;
   }
-  if(gameSelect[1] === "playMoves"){
-  // affichage de la page de resultat pour les partie contre les mouvements
-  els.result.innerHTML = 
-  `
+  if (gameSelect[1] === "playMoves") {
+    // affichage de la page de resultat pour les partie contre les mouvements
+    els.result.innerHTML =
+      `
   <div class="d-flex flex-wrap justify-content-center">
     <h1 class="d-flex justify-content-center text-center col-12 text-danger">BRAVO !!!</h1>
     <p class="d-flex text-center fs-5">Vous avez réussi en :</p>
@@ -268,7 +269,7 @@ function displayResult(timeScore,move) {
 };
 
 //////////////////////////////////////////////// Fonction redémarage d'une partie ///////////////////////////////////////////////
-function restartGame(){
+function restartGame() {
   // effacer l'affichage du resultat de la partie precedente
   els.result.classList.toggle('hidden');
   // appel de la fonction de reboot
@@ -281,15 +282,17 @@ function restartGame(){
 };
 
 ///////////////////////////// Fonction redémarage d'une partie avec choix des themes et difficulté /////////////////////////////////
-function changeTheme(){
+function changeTheme() {
   // cacher section resultat
   els.result.classList.toggle('hidden');
   // montrer section du choix des themes
   els.dispThemes.classList.toggle('hidden');
   // montrer section du choix des difficulté
-  els.dispDifficult.classList.toggle('hidden');
+  //els.dispDifficult.classList.toggle('hidden');
   // appel de la fonction de reboot
   rebootInit();
+  // réinitialisation du theme et de la difficulté choisi précédemment
+  gameSelect = [];
   // appel de la fonction d'affichage du menu 
   displayThemesChoices();
 };
@@ -305,4 +308,89 @@ function rebootInit() {
   });
   //relancer un melange des cartes
   shuffle();
+};
+
+////////////////////////////////////////////////// Fonction pour changer les themes /////////////////////////////////////////////////////
+function changePlayCards() {
+
+  if (gameSelect[0] === "serie") {
+    //changement de toute les back-faces
+    els.backFaces.forEach(backCard => {
+      backCard.src = "./img/THEMES/casa_de_papel/casa-mask-papel.gif";
+      backCard.alt = "image du masque de casa de papel";
+    });
+    //changement de toute les front-faces
+    themechosen = gameSelect[0];
+    tableCard(themechosen);
+  }
+
+  if (gameSelect[0] === "enfant") {
+    //changement de toute les back-faces
+    els.backFaces.forEach(backCard => {
+      backCard.src = "./img/THEMES/dessin_enfant/castel_disney.png";
+      backCard.alt = "dessin du chateau de disney";
+    });
+    //changement de toute les front-faces
+    themechosen = gameSelect[0];
+    tableCard(themechosen);
+  }
+
+  if (gameSelect[0] === "langage") {
+    //changement de toute les back-faces
+    els.backFaces.forEach(backCard => {
+      backCard.src = "./img/THEMES/langage_prog/programmer-computer.png";
+      backCard.alt = "programmer computer";
+    });
+    //changement de toute les front-faces
+    themechosen = gameSelect[0];
+    tableCard(themechosen);
+  }
+};
+
+////////////////////////////////////////////////// Fonction pour changer les themes /////////////////////////////////////////////////////
+function tableCard(themechosen) {
+  let playCardSrc = './Data/table_card.json';
+  let httpRequest = new XMLHttpRequest();
+
+  httpRequest.onreadystatechange = function () {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      // tout va bien, la réponse a été reçue
+      if (httpRequest.status === 200) {
+        let data = JSON.parse(httpRequest.response);
+
+        // themes serie :
+        if (themechosen === "serie") {
+          for (let i = 0; i < 12; i++) {
+            els.frontFaces[i].src = data.serie[i + 1].src;
+            els.frontFaces[i].alt = data.serie[i + 1].alt;
+            els.playCards[i].dataset.framework = data.serie[i + 1].framework;
+          }
+        }
+
+        // themes dessins enfant :
+        if (themechosen === "enfant") {
+          for (let i = 0; i < 12; i++) {
+            els.frontFaces[i].src = data.enfant[i + 1].src;
+            els.frontFaces[i].alt = data.enfant[i + 1].alt;
+            els.playCards[i].dataset.framework = data.enfant[i + 1].framework;
+          }
+        }
+
+        // themes logo langage :
+        if (themechosen === "langage") {
+          for (let i = 0; i < 12; i++) {
+            els.frontFaces[i].src = data.langage[i + 1].src;
+            els.frontFaces[i].alt = data.langage[i + 1].alt;
+            els.playCards[i].dataset.framework = data.langage[i + 1].framework;
+          }
+        }
+      } else {
+        // il y a eu un problème avec la requête,
+        console.log("un probleme est intervenue");
+      }
+    }
+  }
+  httpRequest.open('GET', playCardSrc);
+  httpRequest.send();
+
 }
