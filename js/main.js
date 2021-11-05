@@ -1,29 +1,35 @@
+/*######################################################################################################
+##                                     Initialisation des variables                                   ##
+######################################################################################################*/
+
 // création du tableau des éléments HTML
 const els = {
   welcome: null,
   dispThemes: null,
   dispDifficult: null,
-  allCards: null,
-  playCards: null,
   popStart: null,
+  allCards: null,
+  playCards: null,  
   count: null,
+  result: null,
   backFace: null,
   frontFace: null,
-}
+};
 
 // affectation des éléments HTML
 els.welcome = document.querySelector('#welcome');
 els.dispThemes = document.querySelector('#displayThemes');
 els.dispDifficult = document.querySelector('#displayDifficult');
-els.allCards = document.querySelector('#allCards');
 els.popStart = document.querySelector('#popStart');
+els.allCards = document.querySelector('#allCards');
 els.count = document.querySelector('#count');
+els.result = document.querySelector('#result');
+
 els.backFace = document.querySelectorAll('.back-face');
 els.frontFace = document.querySelectorAll('.front-face');
 els.playCards = document.querySelectorAll('.playCard');
 
 // Déclaration des variables
-
 let gameSelect = [];
 let move = 0;
 let time = 1;
@@ -37,7 +43,7 @@ let lockCards = false;
 
 // Fonction d'initialisation du jeu au lancement de la page.
 const init = () => {
-  console.log("init");
+  //console.log("init");
   ////////////////////////// appel de la fonction d'affichage du message du bienvenue /////////////////////////
   diplayWelcome();
 
