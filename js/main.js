@@ -33,6 +33,8 @@ els.playCards = document.querySelectorAll('.playCard');
 let gameSelect = [];
 let move = 0;
 let time = 1;
+let timeScore = null;
+let countMatchedCard = 0;
 let playCardIsFlipped = false;
 let firstPlayCard, secondPlayCard;
 let lockCards = false;
