@@ -6,6 +6,7 @@
 
 function diplayWelcome() {
   // Affichage du message de bienvenue
+  els.welcome.classList.remove('hidden');
   // pour ne pas affiché le message de bienvenue a chaque refresh de la page
   if (!sessionStorage.getItem("informed")) {
     els.welcome.innerHTML =
@@ -27,7 +28,8 @@ function diplayWelcome() {
 ///////////////////////////////////////// Fonction d'affichage du choix des themes ////////////////////////////////////////////////////
 function displayThemesChoices() {
   // Effacement du menu du message de bienvenue
-  els.welcome.classList.toggle('hidden');
+  els.welcome.classList.add('hidden');
+  els.dispThemes.classList.remove('hidden');
   // Affichage du menu des themes
   els.dispThemes.innerHTML =
     `
@@ -51,9 +53,9 @@ function displayThemesChoices() {
 ///////////////////////////////////////// Fonction d'affichage du choix difficulté ////////////////////////////////////////////////////
 function displayDifficultChoices() {
   // Effacement du menu des themes
-  els.dispThemes.classList.toggle('hidden');
+  els.dispThemes.classList.add('hidden');
   // Affichage du menu des difficultées
-  els.dispDifficult.classList.toggle('hidden');
+  els.dispDifficult.classList.remove('hidden');
   els.dispDifficult.innerHTML =
     `
     <h2 class="d-flex col-12 justify-content-center align-items-center my-5 mx-auto">
@@ -89,19 +91,20 @@ function dispPopupStart() {
 /////////////////////////////////////////// Fonction d'affichage du plateau de carte //////////////////////////////////////////////////
 function displayCards() {
   // Effacement du menu des difficultées
-  els.dispDifficult.classList.toggle('hidden');
+  els.dispDifficult.classList.add('hidden');
   // Affichage du popup de lancement du jeu
   dispPopupStart();
   // Affichage des cartes
-  els.allCards.classList.toggle('hidden');
+  changePlayCards();
+  els.allCards.classList.remove('hidden');
 };
 
 ////////////////////////////////////////// Fonction de lancement du compteur de temps de jeu //////////////////////////////////////////////
 function gameStart() {
   // Effacement du message de lancement de la partie
-  els.popStart.classList.toggle('hidden');
+  els.popStart.classList.add('hidden');
   // Affichage du compteur de coup ou de temps
-  els.count.classList.toggle('hidden');
+  els.count.classList.remove('hidden');
   // Selection du compteur selon le choix utilisateur précédent
   if (gameSelect[1] == "timeVs") {
     playTime();
@@ -202,7 +205,12 @@ function shuffle() {
 //////////////////////////////////////////////////// Fonction compteur de temps de jeu ///////////////////////////////////////////////////
 function playTime() {
   function upTimes() {
-    els.count.innerHTML = `<div id="innerCount" class="d-flex justify-content-center col-6 col-lg-4">Temps écoulé : ${time} s</div>`;
+    els.count.innerHTML = 
+    `
+    <div id="innerCount" class="d-flex justify-content-center col-6 col-lg-6">
+      <p>Temps écoulé : ${time} s</p>
+    </div>
+    `;
     time++;
     console.log(time);
   }
@@ -211,15 +219,20 @@ function playTime() {
 
 //////////////////////////////////////////////////// Fonction compteur de mouvement ///////////////////////////////////////////////////
 function playMoves(move) {
-  els.count.innerHTML = `<div id="innerCount" class="d-flex justify-content-center col-10 col-lg-6">Vous avez effectuez : ${move} mouvements</div>`;
+  els.count.innerHTML = 
+  `
+  <div id="innerCount" class="d-flex justify-content-center col-10 col-lg-8">
+    <p>Vous avez effectuez : ${move} mouvements</p>
+  </div>
+  `;
 };
 
 ////////////////////////////////////////// Fonction d'affichage du resultat de la partie ///////////////////////////////////////////////
 function displayResult(timeScore, move) {
   // si toute les carte sont retourner
-  els.result.classList.toggle('hidden');
-  els.allCards.classList.toggle('hidden');
-  els.count.classList.toggle('hidden');
+  els.result.classList.remove('hidden');
+  els.allCards.classList.add('hidden');
+  els.count.classList.add('hidden');
   if (gameSelect[1] === "timeVs") {
     // affichage de la page de resultat pour les partie contre le temps
     els.result.innerHTML =
