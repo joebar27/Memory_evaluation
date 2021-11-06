@@ -213,10 +213,12 @@ button:hover {
   height: 3vh;
 }
 
-#innerCount {
+#innerCount>p {
   background-color: #d47e7b;
   border-radius: 5px;
   color: #b3d4fc;
+  padding: 0 1em;
+  margin: 0;
 }
 
 /* #########################################################  affichage des regles du jeu   ##################################################################################### */
@@ -264,21 +266,32 @@ a {
   * {
     font-size: 1.2em;
   }
+
   header>div>h1 {
     font-size: 2.5em;
   }
+
   header>p {
     font-size: 1.6em;
   }
+
+  nav {
+    height: 7vh;
+  }
+
+  main {
+    min-height: 73vh;
+  }
+
   nav>ul>li {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 }
 
 /* Pour les media de taille -lg- */
 @media screen and (min-width: 992px) {
   .nav-link {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   .card-lg {
