@@ -249,10 +249,10 @@ function displayResult(timeScore, move) {
       </p>
     </div>
     <div class="d-flex flex-wrap justify-content-center col-12">
-      <h2 class="d-flex justify-content-center col-12">Que voulez-vous faire ?</h2>
-      <div class="d-flex justify-content-around col-12">
-        <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="restartGame()">Rejoué</button>
-        <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="changeTheme()">Changer de theme</button>
+      <h2 class="d-flex justify-content-center col-12 mb-lg-5">Que voulez-vous faire ?</h2>
+      <div class="d-flex justify-content-around col-12 col-lg-6 mt-lg-5">
+        <button class="d-flex col-4 col-lg-3 justify-content-center align-items-center text-center" onclick="restartGame()">Rejoué</button>
+        <button class="d-flex col-4 col-lg-3 justify-content-center align-items-center text-center" onclick="changeTheme()">Changer de theme</button>
       </div>
     </div>
     `;
@@ -271,10 +271,10 @@ function displayResult(timeScore, move) {
     </p>
   </div>
   <div class="d-flex flex-wrap justify-content-center col-12">
-    <h2 class="d-flex justify-content-center col-12">Que voulez-vous faire ?</h2>
-    <div class="d-flex justify-content-around col-12">
-      <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="restartGame()">Rejoué</button>
-      <button class="d-flex col-4 justify-content-center align-items-center text-center" onclick="changeTheme()">Changer de theme</button>
+    <h2 class="d-flex justify-content-center col-12 mb-lg-5">Que voulez-vous faire ?</h2>
+    <div class="d-flex justify-content-around col-12 col-lg-6 mt-lg-5">
+      <button class="d-flex col-4 col-lg-3 justify-content-center align-items-center text-center" onclick="restartGame()">Rejoué</button>
+      <button class="d-flex col-4 col-lg-3 justify-content-center align-items-center text-center" onclick="changeTheme()">Changer de theme</button>
     </div>
   </div>
   `;
