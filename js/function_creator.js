@@ -75,6 +75,7 @@ function displayDifficultChoices() {
 //////////////////////////////////// Fonction d'affichage du popup de lancement de la partie //////////////////////////////////////////
 function dispPopupStart() {
   // Affichage du message de lancement de la partie
+  els.popStart.classList.remove('hidden');
   els.popStart.innerHTML =
     `
     <div class="position-absolute align-items-center top-25 start-0 bg-black bg-opacity-50 popstart pt-5 pt-md-5">
@@ -204,6 +205,7 @@ function shuffle() {
 
 //////////////////////////////////////////////////// Fonction compteur de temps de jeu ///////////////////////////////////////////////////
 function playTime() {
+  // els.count.classList.remove('hidden');
   function upTimes() {
     els.count.innerHTML = 
     `
@@ -219,6 +221,7 @@ function playTime() {
 
 //////////////////////////////////////////////////// Fonction compteur de mouvement ///////////////////////////////////////////////////
 function playMoves(move) {
+  // els.count.classList.remove('hidden');
   els.count.innerHTML = 
   `
   <div id="innerCount" class="d-flex justify-content-center col-10 col-lg-8">
