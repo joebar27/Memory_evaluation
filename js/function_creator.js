@@ -365,7 +365,7 @@ function changePlayCards() {
 
 ////////////////////////////////////////////////// Fonction pour changer les themes /////////////////////////////////////////////////////
 function tableCard(themechosen) {
-  let playCardSrc = './Data/table_card.json';
+  let playCardSrc = './data/table_card.json';
   let httpRequest = new XMLHttpRequest();
 
   httpRequest.onreadystatechange = function () {
