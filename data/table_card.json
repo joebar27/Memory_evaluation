@@ -125,62 +125,62 @@
     },
     "langage": {
         "1": {
-            "src": "img/THEMES/langage_prog/1.png",
+            "src": "./img/THEMES/langage_prog/1.png",
             "alt": "logo C#",
             "framework": "C#"
         },
         "2": {
-            "src": "img/THEMES/langage_prog/2.png",
+            "src": "./img/THEMES/langage_prog/2.png",
             "alt": "logo C#",
             "framework": "C#"
         },
         "3": {
-            "src": "img/THEMES/langage_prog/3.png",
+            "src": "./img/THEMES/langage_prog/3.png",
             "alt": "logo html",
             "framework": "HTML"
         },
         "4": {
-            "src": "img/THEMES/langage_prog/4.png",
+            "src": "./img/THEMES/langage_prog/4.png",
             "alt": "logo html",
             "framework": "HTML"
         },
         "5": {
-            "src": "img/THEMES/langage_prog/5.png",
+            "src": "./img/THEMES/langage_prog/5.png",
             "alt": "logo php",
             "framework": "PHP"
         },
         "6": {
-            "src": "img/THEMES/langage_prog/6.png",
+            "src": "./img/THEMES/langage_prog/6.png",
             "alt": "logo php",
             "framework": "PHP"
         },
         "7": {
-            "src": "img/THEMES/langage_prog/7.png",
+            "src": "./img/THEMES/langage_prog/7.png",
             "alt": "logo python",
             "framework": "PYTHON"
         },
         "8": {
-            "src": "img/THEMES/langage_prog/8.png",
+            "src": "./img/THEMES/langage_prog/8.png",
             "alt": "logo python",
             "framework": "PYTHON"
         },
         "9": {
-            "src": "img/THEMES/langage_prog/9.png",
+            "src": "./img/THEMES/langage_prog/9.png",
             "alt": "logo js",
             "framework": "JS"
         },
         "10": {
-            "src": "img/THEMES/langage_prog/10.png",
+            "src": "./img/THEMES/langage_prog/10.png",
             "alt": "logo js",
             "framework": "JS"
         },
         "11": {
-            "src": "img/THEMES/langage_prog/11.png",
+            "src": "./img/THEMES/langage_prog/11.png",
             "alt": "logo css",
             "framework": "CSS"
         },
         "12": {
-            "src": "img/THEMES/langage_prog/12.png",
+            "src": "./img/THEMES/langage_prog/12.png",
             "alt": "logo css",
             "framework": "CSS"
         }
