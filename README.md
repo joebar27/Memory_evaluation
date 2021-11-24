@@ -16,7 +16,8 @@ Rajouter un timer et/ou compteur d'essais à l'application qui donne un temps ma
 Le jeu ne démarre que lorsque l’utilisateur clique sur le bouton démarrer.  
 S'assurer que l'utilisateur ne puisse pas faire bugger le déroulement du script.  
 Gérer les actions malveillantes de l'utilisateur (double clique sur une même carte, clique avant que les cartes précédentes ne soient retournées...)  
-Critères techniques d’évaluation:  
+
+*Critères techniques d’évaluation:*  
  - HTML5  
  - CSS3  
  - Framework Boostrap 5  
